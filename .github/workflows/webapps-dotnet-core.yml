@@ -64,6 +64,10 @@ jobs:
         with:
           name: .net-app
           path: ${{env.DOTNET_ROOT}}/myapp
+      - name: Azure Login
+        uses: Azure/login@v1.4.2
+        with: 
+          creds: ${{ secrets.AZURE_SPN_CREDENTIAL }}
 
   deploy:
     permissions:
