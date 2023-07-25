@@ -73,7 +73,7 @@ jobs:
         run: |
           # az deployment group create --what-if -g az-bicep-dev-eus-rg --template-file ./AppServicePlan.bicep
             az deployment group create --what-if -g azbicep_prd_eus_rg1 -f ./Main.bicep -p ./main.prd.parameters.json
-  depl  oy:
+  deploy:
     permissions:
       contents: none
     runs-on: ubuntu-latest
