@@ -34,7 +34,7 @@ permissions:
 
 jobs:
   
-  buildApp:
+  build:
     runs-on: ubuntu-latest
 
     steps:
