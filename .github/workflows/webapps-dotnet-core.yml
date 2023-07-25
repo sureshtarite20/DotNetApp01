@@ -87,6 +87,15 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: .net-app
+      
+      - name: Azure Login
+        uses: Azure/login@v1.4.2
+        with: 
+          creds: ${{ secrets.AZURE_SPN_CREDENTIAL }}
+      - name: deploy bicepInfra
+        working-directory: '${{ github.workspace }}/bicep'
+        run: |
+          az deployment group create -g azbicep_prd_eus_rg1 -f ./Main.bicep -p ./main.prd.parameters.json
 
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
