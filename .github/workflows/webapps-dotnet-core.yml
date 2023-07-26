@@ -8,16 +8,14 @@ env:
 on:
   push:
     branches: [ "main" ]
-  workflow_dispatch:
+  # workflow_dispatch:
 
 permissions:
   contents: read
 
 jobs:
-  
   build:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
@@ -28,14 +26,11 @@ jobs:
       - name: bicepInfra
         working-directory: '${{ github.workspace }}/bicep'
         run: |
-          # az deployment group create --what-if -g az-bicep-dev-eus-rg --template-file ./AppServicePlan.bicep
             az deployment group create -g azbicep_prd_eus_rg1 -f ./Main.bicep -p ./main.prd.parameters.json
-
       - name: Set up .NET Core
         uses: actions/setup-dotnet@v2
         with:
           dotnet-version: ${{ env.DOTNET_VERSION }}
-
       - name: Set up dependency caching for faster builds
         uses: actions/cache@v3
         with:
@@ -43,13 +38,10 @@ jobs:
           key: ${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}
           restore-keys: |
             ${{ runner.os }}-nuget-
-
       - name: Build with dotnet
         run: dotnet build --configuration Release
-
       - name: dotnet publish
         run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
-        
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
         with:
