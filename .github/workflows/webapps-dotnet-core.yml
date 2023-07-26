@@ -94,6 +94,8 @@ jobs:
           name: .net-app
       - name: test deploy 
         run: ls -lrt
+      - name: pwd
+        run: pwd
       # - uses: actions/checkout@v3
       - name: Azure Login
         uses: Azure/login@v1.4.2
