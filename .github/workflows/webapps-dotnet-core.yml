@@ -76,7 +76,7 @@ jobs:
           name: .net-app
           path: ${{env.DOTNET_ROOT}}/myapp
       - name: after uploading test
-        run: ls -lrt
+        run: pwd && ls -lrt
       
   deploy:
     permissions:
