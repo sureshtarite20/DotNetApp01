@@ -8,6 +8,9 @@
         "pSkuName": {
             "value": "B1"
         },
+        "pSKUCapacity": {
+            "value": 1
+        },
         "pAppServiceplan": {
             "value": "azbicep-prd-eus-asp01"
         },
