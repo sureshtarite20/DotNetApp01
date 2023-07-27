@@ -6,7 +6,7 @@
             "value": "eastus" 
         },
         "pSkuName": {
-            "value": "S1"
+            "value": "B1"
         },
         "pAppServiceplan": {
             "value": "azbicep-prd-eus-asp01"

@@ -2,7 +2,7 @@ param pLocation string
 param pSkuName string
 param pAppServiceplan string
 param pWebAppName string
-param pSlotName string ='staging'
+//param pSlotName string ='staging'
 
 
 module mAppServicePlan 'AppServicePlan.bicep'={
@@ -12,6 +12,6 @@ module mAppServicePlan 'AppServicePlan.bicep'={
     pSkuName: pSkuName
     pAppServiceplan: pAppServiceplan
     pWebAppName: pWebAppName
-    pSlotName: pSlotName
+    //pSlotName: pSlotName
   }  
 }
