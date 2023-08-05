@@ -1,7 +1,7 @@
 name: Build and deploy ASP.Net Core app to an Azure Web App
 
 env:
-  AZURE_WEBAPP_NAME: azbicep-prd-eus-webapp01    # set this to the name of your Azure Web App
+  AZURE_WEBAPP_NAME: awebapp-demo-ba01    # set this to the name of your Azure Web App
   AZURE_WEBAPP_PACKAGE_PATH: '.'      # set this to the path to your web app project, defaults to the repository root
   DOTNET_VERSION: '7.0.x'                 # set this to the .NET Core version to use
 
@@ -19,14 +19,14 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
-      - name: Azure Login
-        uses: Azure/login@v1.4.2
-        with: 
-          creds: ${{ secrets.AZURE_SPN_CREDENTIAL }}
-      - name: bicepInfra
-        working-directory: '${{ github.workspace }}/bicep'
-        run: |
-            az deployment group create -g azbicep_prd_eus_rg1 -f ./Main.bicep -p ./main.prd.parameters.json
+      #- name: Azure Login
+      #  uses: Azure/login@v1.4.2
+      #  with: 
+      #    creds: ${{ secrets.AZURE_SPN_CREDENTIAL }}
+      # - name: bicepInfra
+      #  working-directory: '${{ github.workspace }}/bicep'
+      #  run: |
+      #      az deployment group create -g azbicep_prd_eus_rg1 -f ./Main.bicep -p ./main.prd.parameters.json
       - name: Set up .NET Core
         uses: actions/setup-dotnet@v2
         with:
