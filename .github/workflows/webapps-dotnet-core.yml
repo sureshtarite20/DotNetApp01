@@ -1,4 +1,4 @@
-name: Build and deploy ASP.Net Core app to an Azure Web App
+name: ci-cd for DotNet WebApp
 
 
 env:
